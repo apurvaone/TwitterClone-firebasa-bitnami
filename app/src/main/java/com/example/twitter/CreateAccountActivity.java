@@ -27,30 +27,34 @@ public class CreateAccountActivity extends AppCompatActivity {
     EditText fullname;
     EditText dob;
     EditText phone;
+    static ParseUser user;
 
     public void createUser(View view)
     {
-        ParseUser user = new ParseUser();
-        user.put("name",fullname.getText());
-        user.put("phone",phone.getText());
-        user.put("dob",dob.getText());
+         user = new ParseUser();
+        user.put("name",fullname.getText().toString());
+        user.put("phone",phone.getText().toString());
+        user.put("dob",dob.getText().toString());
+        Log.i("in","createUser");
+        Intent intent= new Intent(getApplicationContext(),UsernamePasswordActivity.class);
+        startActivity(intent);
 
-        user.saveInBackground(new SaveCallback() {
+        /*user.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if (e== null) {
                     Log.i("User creation", "Successful!");
-                    Toast.makeText(CreateAccountActivity.this,"create username and password",Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateAccountActivity.this,"create username and password",Toast.LENGTH_SHORT).show();
+
+
                 } else {
                     Log.i("Parse Result", "Failed" + e.toString());
-                    Toast.makeText(CreateAccountActivity.this,"Error",Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateAccountActivity.this,"Error:"+e.toString(),Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });*/
 
 
-        Intent intent= new Intent(this,UsernamePasswordActivity.class);
-        startActivity(intent);
 
     }
 
