@@ -3,6 +3,7 @@ package com.example.twitter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -19,6 +20,13 @@ public class CreateAccountActivity extends AppCompatActivity {
     EditText fullname;
     EditText dob;
     EditText phone;
+
+    public void createUspa(View view)
+    {
+        Intent intent= new Intent(this,UsernamePasswordActivity.class);
+        startActivity(intent);
+
+    }
 
 
 
@@ -37,6 +45,9 @@ public class CreateAccountActivity extends AppCompatActivity {
         fullname= findViewById(R.id.editFullName);
         phone= findViewById(R.id.editPhone);
         dob= findViewById(R.id.editDob);
+
+
+
 
 
        // final Calendar myCalendar = Calendar.getInstance();
