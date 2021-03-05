@@ -2,6 +2,7 @@ package com.example.twitter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +28,10 @@ public  void signUp(View view)
        public void done(ParseException e) {
            if (e==null){
                Log.i("Sign up ","done @"+ ParseUser.getCurrentUser().getUsername());
-               Toast.makeText(getApplicationContext(),"Account Created Successfully",Toast.LENGTH_SHORT).show();
+               Toast.makeText(getApplicationContext(),"Account Created Successfully! Sign in now",Toast.LENGTH_LONG).show();
+               Intent intent= new Intent(getApplicationContext(),LoginAct.class);
+               startActivity(intent);
+              // Toast.makeText(getApplicationContext(),"Sign in now",Toast.LENGTH_SHORT).show();
            }
            else {Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
                e.printStackTrace();

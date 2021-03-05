@@ -2,6 +2,7 @@ package com.example.twitter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +17,19 @@ public class LoginAct extends AppCompatActivity {
 
 EditText editUname;
 EditText editPword;
+
+public void SignupBack(View view)
+{
+    Intent intent = new Intent(this,CreateAccountActivity.class);
+    startActivity(intent);
+}
+
+public  void enterFeed()
+{
+
+    Intent intent= new Intent(this,FeedActivity.class);
+    startActivity(intent);
+}
     public void login(View view)
     {
         if (editUname.getText().toString().matches("")||editPword.getText().toString().matches(""))
@@ -30,7 +44,10 @@ EditText editPword;
                 {
                     Log.i("Succesfully","signed in "+ ParseUser.getCurrentUser().getUsername());
                     Toast.makeText(getApplicationContext(),"Succesfully signed in as @"+ParseUser.getCurrentUser().getUsername(),Toast.LENGTH_SHORT).show();
-                    
+                    enterFeed();
+
+
+
                 }
                 else {
                     //Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
