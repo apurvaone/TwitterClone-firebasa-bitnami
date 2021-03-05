@@ -21,6 +21,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     EditText phone;
 
 
+
     private void updateLabel() {
         String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -33,9 +34,14 @@ public class CreateAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
         getSupportActionBar().hide();
 
+        fullname= findViewById(R.id.editFullName);
+        phone= findViewById(R.id.editPhone);
+        dob= findViewById(R.id.editDob);
+
+
        // final Calendar myCalendar = Calendar.getInstance();
 
-        edittext= (EditText) findViewById(R.id.dob);
+        edittext= (EditText) findViewById(R.id.editDob);
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
