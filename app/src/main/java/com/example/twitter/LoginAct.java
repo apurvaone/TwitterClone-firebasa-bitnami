@@ -26,9 +26,9 @@ public void SignupBack(View view)
 
 public  void enterFeed()
 {
-
-    Intent intent= new Intent(this,FeedActivity.class);
-    startActivity(intent);
+if (ParseUser.getCurrentUser()!=null){
+    Intent intent= new Intent(this,UsersActivity.class);
+    startActivity(intent);}
 }
     public void login(View view)
     {
@@ -62,6 +62,7 @@ public  void enterFeed()
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //enterFeed();
 
         getSupportActionBar().hide();
 
